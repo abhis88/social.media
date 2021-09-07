@@ -23,6 +23,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	// Using Spring JPA
 	@RequestMapping(value="/users", method=RequestMethod.GET)
 	public List<User> fetchAllUsers(){
 		return userService.fetchAllUsers();
@@ -48,9 +49,31 @@ public class UserController {
 		return userService.updateUser(user);
 	}
 	
+	
+	// Using JPA
 	@GetMapping("/findAUser/{id}")
 	public User findAUser(@PathVariable int id) {
 		return userService.findAUser(id);
+	}
+
+	@PostMapping("/createAUser")
+	public User insert(@RequestBody User user) {
+		return userService.insert(user);
+	}
+	
+	@GetMapping("/UpdateAUser")
+	public User update(@RequestBody User user) {
+		return userService.update(user);
+	}
+	
+	@DeleteMapping("/deleteAUser/{id}")
+	public void delete(@PathVariable int id) {
+		userService.delete(id);
+	}
+	
+	@GetMapping("/findAll")
+	public List<User> findAll() {
+		return userService.findAll();
 	}
 
 }

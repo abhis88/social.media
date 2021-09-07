@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name="Users")
+@NamedQuery(name="find_all_users", query="select u from Users u")
 public class User {
 	
 	@Id

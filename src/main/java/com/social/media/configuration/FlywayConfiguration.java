@@ -15,7 +15,13 @@ public class FlywayConfiguration {
 
 	/**
 	 * Override default flyway initializer to do nothing
+	 * @return 
 	 */
+	
+	@Bean
+	void FlywayMigrationInitializer () {
+	}
+
 	@Bean
 	FlywayMigrationInitializer flywayInitializer(Flyway flyway) {
 		return new FlywayMigrationInitializer(flyway, (f) ->{} );

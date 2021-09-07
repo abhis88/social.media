@@ -40,6 +40,32 @@ public class UserService {
 	
 	// using JPA
 	public User findAUser(int id) {
+		
+		User user = userDaoJpa.fetchById(id);
+		
+		if(user == null) {
+			System.out.println("No records found with id "+id);
+		}
+		
 		return userDaoJpa.fetchById(id);
 	}
+	
+	public User insert(User user) {
+		return userDaoJpa.insert(user);
+	}
+	
+	public User update(User user) {
+		return userDaoJpa.insert(user);
+	}
+	
+	public void delete(int id) {
+		userDaoJpa.delete(id);
+	}
+	
+	// using JPQL - Java Persistence Query Language
+	
+	public List<User> findAll() {
+		return userDaoJpa.findAll();
+	}
+	
 }
